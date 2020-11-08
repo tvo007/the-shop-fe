@@ -2,8 +2,8 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {RouteWithLayout} from './components';
 // import {PrivateRouteWithLayout} from './components';
-import {Main} from './layouts';
-import {Landing, Products} from './views';
+import {Main, LandingLayout} from './layouts';
+import {Landing, Products, Product, Cart} from './views';
 
 //experiemntal redux addition
 // import {connect} from 'react-redux';
@@ -15,13 +15,25 @@ const Routes = () => {
     <div>
 
       <Switch>
-        <RouteWithLayout component={Landing} exact layout={Main} path="/" />
+        <RouteWithLayout
+          component={Landing}
+          exact
+          layout={LandingLayout}
+          path="/"
+        />
         <RouteWithLayout
           component={Products}
           exact
           layout={Main}
           path="/products"
         />
+        <RouteWithLayout
+          component={Product}
+          exact
+          layout={Main}
+          path="/products/:id"
+        />
+        <RouteWithLayout component={Cart} exact layout={Main} path="/cart" />
 
       </Switch>
     </div>

@@ -6,14 +6,13 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles (theme => ({
   main: {
     minHeight: '90vh',
-    marginLeft: '10vw',
-    marginRight: '10vw',
-    marginTop: '5vh',
-    marginBottom: '5vh',
+    // marginLeft: '10vw',
+    // marginRight: '10vw',
+    // marginTop: '5vh',
   },
 }));
 
-const Main = ({children}) => {
+const LandingLayout = ({children}) => {
   const classes = useStyles ();
 
   return (
@@ -28,8 +27,8 @@ const Main = ({children}) => {
   );
 };
 
-Main.propTypes = {
+LandingLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default Main;
+export default LandingLayout;

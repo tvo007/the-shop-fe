@@ -7,8 +7,20 @@ import {
   CardContent,
   CardMedia,
   Divider,
+  Link,
+  Button,
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
+// import {useSelector, useDispatch} from 'react-redux';
+// import {useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import {
+  // imageOne,
+  // imageTwo,
+  // imageThree,
+  // imageFour,
+  imageFive,
+} from '../../constants/imageConstants';
 
 const useStyles = makeStyles (theme => ({
   landing: {
@@ -26,7 +38,9 @@ const useStyles = makeStyles (theme => ({
   },
   overlay: {
     position: 'absolute',
-    top: '13vh',
+    // top: '13vh',
+    bottom: '1px',
+    paddingLeft: '70%',
 
     height: '100vh',
   },
@@ -57,15 +71,18 @@ const useStyles = makeStyles (theme => ({
 const Landing = props => {
   const classes = useStyles ();
 
+  let history = useHistory ();
+
+  const routeToProducts = () => {
+    history.push (`/products`);
+  };
+
   return (
     <Grid className={classes.landing}>
 
       <Grid container direction="column">
         <Card className={classes.relativeGrid}>
-          <CardMedia
-            className={classes.landingImage}
-            image="https://res.cloudinary.com/ddj5orpun/image/upload/v1604023269/the-shop/alf-williamsen-e_IP-9e7-Rs-unsplash_3_hmroq4_ilimpg_bgvgw0.jpg"
-          />
+          <CardMedia className={classes.landingImage} image={imageFive} />
           <Grid
             container
             direction="column"
@@ -76,32 +93,26 @@ const Landing = props => {
             <Grid>
               <Typography
                 variant="h1"
-                color="textPrimary"
+                color="textSecondary"
                 className={classes.overlayTagline}
               >
-                WINTER IS COMING
+                Walking on air...
               </Typography>
 
             </Grid>
 
             <Grid>
-              <Typography
-                variant="h3"
-                color="textPrimary"
-                className={classes.overlayText}
-              >
-                SHOP MEN'S
-              </Typography>
-            </Grid>
-            <Divider />
-            <Grid>
-              <Typography
-                variant="h3"
-                color="textPrimary"
-                className={classes.overlayText}
-              >
-                SHOP WOMEN'S
-              </Typography>
+              <Link onClick={routeToProducts}>
+                <Button>
+                  <Typography
+                    variant="h3"
+                    color="textPrimary"
+                    className={classes.overlayText}
+                  >
+                    BUY NOW
+                  </Typography>
+                </Button>
+              </Link>
             </Grid>
 
           </Grid>

@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {makeStyles, useTheme} from '@material-ui/styles';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import {makeStyles} from '@material-ui/styles';
+import {useHistory} from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import {Grid} from '@material-ui/core';
+import {
+  Grid,
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+  CssBaseline,
+  useScrollTrigger,
+} from '@material-ui/core';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles (theme => ({
   appBar: {
+    backgroundColor: theme.palette.white,
   },
- 
 }));
 
 function ElevationScroll (props) {
@@ -33,6 +38,12 @@ function ElevationScroll (props) {
 }
 
 const Header = props => {
+  let history = useHistory ();
+
+  const routeToCart = () => {
+    history.push (`/cart`);
+  };
+
   const classes = useStyles ();
 
   return (
@@ -43,17 +54,14 @@ const Header = props => {
           <Toolbar>
             <Grid container justify="flex-end" spacing={2}>
               <Grid item>
-                <Typography variant="h3" color="textSecondary">Bruh</Typography>
+                <Button onClick={routeToCart}>
+                  <ShoppingCartIcon />
+                </Button>
               </Grid>
               <Grid item>
-                <Typography variant="h3" color="textSecondary">
-                  Header
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="h3" color="textSecondary">
-                  Header
-                </Typography>
+                <Button>
+                  <PersonIcon />
+                </Button>
               </Grid>
 
             </Grid>
