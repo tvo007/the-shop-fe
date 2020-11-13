@@ -19,7 +19,7 @@ const useStyles = makeStyles (theme => ({
   },
 }));
 
-const Item = ({id, name, img, description, sale_price, onClick}) => {
+const Item = ({id, name, img, description, sale_price, onClick, children}) => {
   const classes = useStyles ();
   return (
     <Card className={classes.card}>
@@ -35,6 +35,7 @@ const Item = ({id, name, img, description, sale_price, onClick}) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      {children}
     </Card>
   );
 };

@@ -33,7 +33,7 @@ const Routes = () => {
           layout={Main}
           path="/products/:id"
         />
-        <RouteWithLayout component={Cart} exact layout={Main} path="/cart" />
+        <RouteWithLayout component={Cart} exact layout={Main} path="/cart/:id?" />
 
       </Switch>
     </div>
